@@ -1,4 +1,4 @@
-##1. How Java is different from other programming languages?
+**1. How Java is different from other programming languages?
 Java is an object-oriented programming language that helps in creating reusable and modular code.
 Java can run on any operating system because of the Java Virtual Machine (JVM), making it platform independent.
 It provides extensive built-in libraries that support various programming needs such as networking, data structures, and file handling.

@@ -1,0 +1,49 @@
+1. Write a program to print elements of 1D array in reverse order:
+   input: {1,2,3,4,5}    output: {5,4,3,2,1}
+
+package day_05;
+
+import java.util.Arrays;
+
+public class assignment {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		int [] val = {1,2,3,4,5};
+		int [] rev = new int [val.length]; // creating a new array 
+		int j =0;  // starting with index zero
+		
+		int a = val.length; 
+		System.out.println(a);
+		for(int i=a-1; i>=0;i--) {  // creating a for loop to reverse the number and store in a array
+			rev[j]=val[i];
+			j++;                    // incrementing the index of array
+		}
+		
+		System.out.println(rev);    // this gives the memory address of the array
+		System.out.println(Arrays.toString(rev)); // which converts array to readable format
+		
+	}
+
+}
+
+2. Write a program using for-each loop to print characters from an array: 
+
+  package day_05;
+
+public class assignment_02 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		char [] charac = {'a','b','c','d'};
+		
+		for(char val:charac) {
+			System.out.println(val);
+		}
+		
+	}
+
+}
+

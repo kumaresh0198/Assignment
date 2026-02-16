@@ -1,0 +1,66 @@
+1. Explain about class and objects
+
+class:
+* class is a blueprint used to create objects.
+* In class we can define properties and methods.
+* class doesn't occupy memory
+eg. Think class is a blueprint to build a house
+
+Objects:
+* Object is a instance of class.
+* By creating object we can able to access the properties and methods defined in the class.
+* when an object is created it allocates memory to store its data.
+eg. Actual house is build with help of the house plan.
+
+2. Create a program as  follows:
+
+      Parent Class: Person who can walk,run,sit and has attributes height,weight
+      Child Class: Student who has own method study and also can inherit the methods and properties from Person
+     Print the results
+
+package oops;
+
+class Person{   
+	
+// Properties	
+	int height;
+	int weight;
+	
+	// Methods
+	public void walk() {
+		System.out.println("he is walking");
+	}
+	public void run() {
+		System.out.println("he is running");
+	}
+	public void sit() {
+		System.out.println("he is sitting idle");
+	}
+	
+}
+
+public class Student extends Person{  // student acquiring properties and methods of person class
+
+	void study() {    // method
+		System.out.println("he is studying");
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Student obj = new Student();
+		obj.height=170;
+		obj.weight=75;
+		
+		// printing the values
+		System.out.println("Height is: " + obj.height);
+		System.out.println("Weight is: " + obj.weight);
+
+		
+		obj.walk(); // from parent
+		obj.run();  // from parent
+		obj.sit();  // from parent
+		obj.study();// from child
+
+	}
+
+}

@@ -1,0 +1,75 @@
+1. Create an abstract class School with abstract method takeAttendance(String name) and concrete method ringBell() implement the same in a child class
+
+package oops;
+
+abstract class school{  // abstract class is created
+abstract void takeAttendance(String name);  // abstract method is created
+
+void ringBell(){   // concrete method
+System.out.println("ring the bell");
+}
+}
+
+public class Child extends school {  // child extends parent methods
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Child obj = new Child();
+		obj.takeAttendance("kumaresh kumar");
+		obj.ringBell();
+		
+	}
+
+	@Override  // child class gives a specific implementation of a method defined in the parent class
+	void takeAttendance(String name) {
+		System.out.println( name +" attendance is marked ");
+		
+	}
+
+}
+
+2. Create an Interface Vehicle with methods drive() , applyBrake() and implement the same in a class.
+
+package oops;
+
+public interface Vechiles {
+	
+	void drive();
+
+	void applyBrake();
+
+}
+
+package oops;
+
+public class Cars implements Vechiles { // 
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Cars obj = new Cars();
+		obj.drive();
+		obj.applyBrake();
+	}
+
+
+	@Override
+	public void drive() {
+		System.out.println("drive the car");
+		
+	}
+
+
+	@Override
+	public void applyBrake() {
+		System.out.println("apply the brake");
+		
+	}
+
+}
+
+
+
+
+  

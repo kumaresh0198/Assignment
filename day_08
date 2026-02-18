@@ -1,75 +1,45 @@
-1. Create an abstract class School with abstract method takeAttendance(String name) and concrete method ringBell() implement the same in a child class
+1. What is the difference between Error and Exception? Explain with examples
+Error
+* A serious problem
+* Caused by the JVM (Java Virtual Machine)
+* Not caused by normal programming mistakes
+examples:
+1.) OutOfMemoryError -> when the jvm runs out of memory.
+2.) StackOverFlowError -> when the method call itself too many times.
+
+Exception:
+* Occurs during runtime
+* Unexpected event that disrupts normal flow
+* Can be handled using try-catch
+examples:
+ArithmeticException -> where it shows error if there is any issue in arithmetic operation.
+IOException -> this error occurs when we try to perform some input or output tasks and then some issues occur.
+ArrayIndexOutOfBoundsException -> when we try to access an index that is outside the valid range of the defined array.
+
+2. Write a program for handling exception
 
 package oops;
 
-abstract class school{  // abstract class is created
-abstract void takeAttendance(String name);  // abstract method is created
-
-void ringBell(){   // concrete method
-System.out.println("ring the bell");
-}
-}
-
-public class Child extends school {  // child extends parent methods
+public class Assingment {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		Child obj = new Child();
-		obj.takeAttendance("kumaresh kumar");
-		obj.ringBell();
-		
-	}
+		try {  // executes the exception code
+            int[] val = {1,2,3,4,5,6,7};
+            System.out.println(val[10]);
+        } catch (ArrayIndexOutOfBoundsException e) {  // handles the exception
+           
+        	// e.printStackTrace(); this one shows the error and executes the below code
+            
+            System.out.println("Index is out of range");// customized message
+            
+        }finally { // always executes whether exception occurs or not
+            System.out.println("This block always executes");
+        }
 
-	@Override  // child class gives a specific implementation of a method defined in the parent class
-	void takeAttendance(String name) {
-		System.out.println( name +" attendance is marked ");
-		
-	}
+        System.out.println("end of the program");
 
-}
-
-2. Create an Interface Vehicle with methods drive() , applyBrake() and implement the same in a class.
-
-package oops;
-
-public interface Vechiles {
-	
-	void drive();
-
-	void applyBrake();
-
-}
-
-package oops;
-
-public class Cars implements Vechiles { // 
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		
-		Cars obj = new Cars();
-		obj.drive();
-		obj.applyBrake();
-	}
-
-
-	@Override
-	public void drive() {
-		System.out.println("drive the car");
-		
-	}
-
-
-	@Override
-	public void applyBrake() {
-		System.out.println("apply the brake");
-		
 	}
 
 }
-
-
-
-
-  

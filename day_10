@@ -1,0 +1,46 @@
+1. How map differs from other collection interface? Explain with an example program
+
+* Map stores key-value pairs
+* Key must be unique
+* Values can be duplicate
+* It does not follow index-based storage
+
+  whereas List stores only value and allows duplicates. Set also stores only value and does not allow duplicates. 
+
+  Example:
+  import java.util.Map;
+import java.util.Set;
+import java.util.HashMap;
+
+public class map {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		
+		Map<String,Integer> map = new HashMap<String,Integer>();
+		map.put("kumar", 3); 
+		map.put("raj", 2);
+		map.put("abdul", 1);
+		map.put("akash", 3); // duplicate value allowed
+		
+		System.out.println(map);
+ 
+  }
+}
+
+2. Explain the scenario like when to go with manual testing and automation testing
+
+Manual Testing:
+* when the application is newly developed
+* client requirements are not frozen
+* UI changes frequently
+* if the page contains CAPTCHA
+* For exploratory and usability testing
+
+Automation Testing:
+* To run tests faster
+* If the application is web-based
+* When the application is stable
+* when need to run regression testing multiple no of times
+* To avoid human errors

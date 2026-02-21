@@ -1,0 +1,68 @@
+1. Create a List of Strings with student names and print it in sorted order
+
+package collections;
+
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class assingnment {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		List<String> li = new ArrayList<String>();
+		
+		li.add("kumar"); // adding values to the list
+		li.add("babu");
+		li.add("krish");
+		li.add("hari");
+		li.add("anjan");
+		
+		System.out.println("this an insertion order");
+		System.out.println(li);
+		
+		System.out.println("this is sorted order");
+		Collections.sort(li);	// sorting the list
+		for(String sort : li) {
+			System.out.println(sort);
+		}		
+	
+	}
+
+}
+
+
+2. Create a Set of numbers and print the value only when it is odd number
+
+package collections;
+
+import java.util.Set;
+import java.util.HashSet;
+import java.util.Iterator;
+
+public class assingnmnet_2 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Set<Integer> a = new HashSet<Integer>();
+		
+		for(int i=1;i<=9;i++) {  // adding values in the set by looping statement
+			a.add(i);
+		}
+		System.out.println(a);
+		System.out.println("the odd numbers in the set are :");
+		
+		Iterator<Integer> b = a.iterator();
+		
+		while(b.hasNext()) {
+			int val = b.next();  // iterating each value and storing in a variable and checking condition
+			if(val % 2 != 0) {
+			System.out.println(val);
+		}
+	}
+
+}
+}
+

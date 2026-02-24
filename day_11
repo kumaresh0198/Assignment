@@ -1,0 +1,23 @@
+1. Write possible CSS Selector and XPath for "Click Me" button in following page:
+https://www.tutorialspoint.com/selenium/practice/buttons.php
+
+Possible Css Selector:
+button[type="button"]            -> tag name and attribute
+button[class="btn btn-primary"]  -> tag name and attribute
+button[onclick="showDiv()"]      -> tag name and attribute
+button[xpath="1"]                -> tag name and attribute
+div button              -> child of child
+div>button              -> direct child
+div button:nth-child(2) -> Specific using nth-child
+button[class^="btn"]    -> it returns the class name starts with "btn"
+button[class*="pri"]    -> it returns the class name containing "pri"    
+button[class$="mary"]   -> it returns the class name ends with "mary"
+
+Possible Xpath:
+//button[@type="button"] -> tag name and attribute
+//button[@xpath="1"]     -> tag name and attribute     
+//button[@onclick="showDiv()"] -> tag name and attribute
+//button[@class="btn btn-primary"] -> tag name and attribute
+//button[text()="Click Me"]  -> tag name and attribute
+//button[@type="button" and @xpath="1"] -> tag name and attribute
+//button[@class="btn btn-primary" or @xpath="1"] -> tag name and attribute

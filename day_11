@@ -8,6 +8,7 @@ button[onclick="showDiv()"]      -> tag name and attribute
 button[xpath="1"]                -> tag name and attribute
 div button              -> child of child
 div>button              -> direct child
+button.btn.btn-primary   -> tagname and classname
 div button:nth-child(2) -> Specific using nth-child
 button[class^="btn"]    -> it returns the class name starts with "btn"
 button[class*="pri"]    -> it returns the class name containing "pri"    

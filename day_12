@@ -1,0 +1,38 @@
+Navigate to "https://www.demoblaze.com/"
+* Get the text of "Samsung Galaxy S6" and print
+* Click the link of "Samsung Galaxy S6"
+* Click "Add to Cart" button
+
+package day_2;
+
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class assigment {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+		
+		String url = "https://www.demoblaze.com/";
+		
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get(url);     // opens the url
+		// here the page is taking time to load so i have used implicitlywait
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10)); 
+		WebElement text =driver.findElement(By.xpath("(//a[@class='hrefch'])[1]")); // locates the text
+		System.out.println("text is : "+ text.getText());   // gets the text
+		text.click();
+		WebElement add = driver.findElement(By.cssSelector("a[onclick='addToCart(1)']")); 
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		add.click();  // clicks add to cart
+		System.out.println("added to the cart successfully");
+		driver.close();
+
+	}
+
+}

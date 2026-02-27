@@ -1,0 +1,81 @@
+1. https://vinothqaacademy.com/multiple-windows/
+
+In the above given site click "New Browser window" and focus to the new window
+
+package day_4;
+
+import java.util.Set;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class assignment {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		String url = "https://vinothqaacademy.com/multiple-windows/";
+		
+		WebDriver driver = new ChromeDriver();
+		driver.get(url);
+		driver.manage().window().maximize();
+		
+		String parent = driver.getWindowHandle();  // gets the current window handle
+		System.out.println("Parent Window: " + parent);
+		System.out.println(driver.getTitle());
+		System.out.println();  // adding empty space
+		driver.findElement(By.cssSelector("button[onclick=\"newBrwWin()\"]")).click();
+		Set<String> handles = driver.getWindowHandles(); // gets all the windows handles
+		
+		for(String handle:handles) {  // using enhanced for loop to print all the handles
+			if(!handle.equals(parent)) {  // if child not equal to parent handle
+				System.out.println("Child Window: "+handle );
+				driver.switchTo().window(handle);  // then switch to child window
+				System.out.println(driver.getTitle());
+			}
+		}
+		driver.quit();;
+
+	}
+
+}
+
+
+2. https://vinothqaacademy.com/wait-statement/
+
+Navigate to above site, type into the text box after clicking "Click Me to view textbox" button
+
+package day_4;
+
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class assignment_2 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		String url = "https://vinothqaacademy.com/wait-statement/";
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get(url);
+		// storing in a webelement
+		WebElement btn = driver.findElement(By.id("vtsBtn"));
+		btn.click();
+		// defining explicit wait
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		WebElement text = wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("vts-input")));
+		text.sendKeys("Hello World !"); // sending text 
+		System.out.println("after entering the text click me button is enabled: " + btn.isEnabled());
+		
+		driver.close();
+
+	}
+
+}

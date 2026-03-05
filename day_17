@@ -1,0 +1,83 @@
+1. Navigate to https://www.tutorialspoint.com/selenium/practice/frames.php
+switch to iFrame1 and click "Selenium Tutorial" link
+
+  package day_5;
+
+import java.util.Set;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class frame {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+		
+		String url ="https://www.tutorialspoint.com/selenium/practice/frames.php";
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get(url);
+		
+		String parentwindow = driver.getWindowHandle(); // storing parent window string
+
+		driver.switchTo().frame(0); // switching to the first frame
+		WebElement selenium = driver.findElement(By.className("external-link")); //locating the element
+		
+		Actions mouseactions = new Actions(driver);
+		mouseactions.moveToElement(selenium).click().perform(); //  moving the cursor to the element and click it 
+		
+		Set<String> windows = driver.getWindowHandles();  // getting all windows handle
+		
+		for(String window:windows) {
+			if(!parentwindow.equals(window)) {
+				driver.switchTo().window(window);   // switching it to child window
+				System.out.println(driver.getTitle());  // getting the child window title
+			} 
+		}
+		
+		driver.quit();
+	
+	}
+
+}
+
+2. Access https://www.qa-practice.com/elements/checkbox/mult_checkbox
+Print the label of checkbox for any one of the checkbox element using Relative Locators
+Click the "Submit" button using Relative Locators
+
+package day_5;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import static org.openqa.selenium.support.locators.RelativeLocator.with;
+
+public class relativelocassignment {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		String url ="https://www.qa-practice.com/elements/checkbox/mult_checkbox";
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get(url);
+		
+		WebElement submit = driver.findElement(By.id("submit-id-submit"));
+		// Printing one label of the checkbox element
+		WebElement text =driver.findElement(with(By.tagName("label")).above(submit));
+		System.out.println(text.getText());
+		
+		WebElement one = driver.findElement(By.cssSelector("label[for=\"id_checkboxes_0\"]"));
+		// clicking the submit button
+		WebElement button = driver.findElement(with(By.tagName("input")).below(one));
+		button.click();
+		System.out.println("submit button is clicked");
+		
+		driver.close();
+		
+	}
+
+}
